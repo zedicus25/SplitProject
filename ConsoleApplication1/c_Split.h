@@ -1,28 +1,26 @@
 #pragma once
-#include "c_Room.h"
 class c_Split
 {
 private:
 	bool isTurn;
 	float temperatureSensor;
-	c_Room* room;
 public:
 	c_Split();
-	explicit c_Split(bool isTurn, float temperature, c_Room* room);
-	c_Room* getRoom() {
-		return this->room;
-	}
+	c_Split(bool isTurn, float temperature);
 	float getTemperatureSensor() {
 		return this->temperatureSensor;
 	}
-	void setTemperatureSensor(float tempearute) {
-		this->temperatureSensor = tempearute;
+
+	void addTemperatureSensor() {
+		this->temperatureSensor += 1;
 	}
-
-	void turnOn();
-	void turnOff();
-
-	void addTemperature(float temperature);
-	void minusTemperature(float temperature);
+	void minusTemperatureSensor() {
+		this->temperatureSensor -= 1;
+	}
+	void turnOn() {
+		this->isTurn = true;
+	}
+	void turnOff() {
+		this->isTurn = false;
+	}
 };
-

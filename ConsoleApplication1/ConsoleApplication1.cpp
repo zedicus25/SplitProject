@@ -2,15 +2,14 @@
 #include "c_Controller.h"
 int main()
 {
+	c_Split split(false, 20);
+	c_Room room(26, split);
 	c_Controller controller;
-	c_Split split;
-	controller.addTemperature(split, 20);
-	std::cout << split.getRoom()->getTemperature() << "\n";
-	split.addTemperature(25);
-	std::cout << split.getRoom()->getTemperature() << "\n";
-	controller.minusTemperature(split, 15);
-	std::cout << split.getRoom()->getTemperature() << "\n";
-	split.minusTemperature(14);
-	std::cout << split.getRoom()->getTemperature() << "\n";
+	controller.turnOn(split);
+	room.maintainTemperature();
+	std::cout << "\n";
+	controller.addTemperature(split);
+	room.maintainTemperature();
+	
 }
 
